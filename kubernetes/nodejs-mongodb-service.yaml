@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs-blob-store-service
+  labels:
+    app: nodejs-blob-store-service
+spec:
+  selector:
+    matchLabels:
+      app: nodejs-blob-store-service
+  template:
+    metadata:
+      labels:
+        app: nodejs-blob-store-service
+    spec:
+      containers:
+      - name: nodejs-blob-store-service
+        image: bobcrutchley/nodejs-blob-store-service:latest
+        ports:
+        - name: http-port
+          containerPort: 3001
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nodejs-blob-store-service
+spec:
+  type: NodePort
+  ports:
+    - port: 3001
+  selector:
+    app: nodejs-blob-store-service
+

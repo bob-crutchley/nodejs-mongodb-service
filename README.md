@@ -1,1 +1,1 @@
-# nodejs-blob-store-service
+# nodejs-mongodb-service

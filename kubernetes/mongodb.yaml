@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: mongodb
-        image: docker.io/mongodb:latest
+        image: mongo:latest
         ports:
         - name: db-port
           containerPort: 27017
